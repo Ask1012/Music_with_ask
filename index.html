@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EnJoY music WITH @THARV</title>
+    <style>
+        .blinking-butto {
+    animation: blink-animation 0.7s infinite; /* Blinking effect */
+  }
+
+  @keyframes blink-animation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+       div{ text-align: center;
+            background-color: pink;
+            text-transform: uppercase; 
+            font-size: 1em; 
+            border:3px solid black;
+                              /* Increase font size */
+        }
+        #d1{ background-color: #F8F9FA;color: #333333        
+          padding: 2px 2px;
+        }
+      #d2{ border:2px solid lightblack;
+          padding: 20px 20px;
+        }
+     #b1{ position:fixed;
+              top:150px;
+              right:10px;
+              width:70px;
+              height:70px;
+              border-radius:20px;
+              background-color:cyan; 
+            }
+     #b2{     padding:5px; width:100px;
+              height:40px;
+              border-radius:10px;
+}
+        img{ width:350px;
+             height:300px;
+      }
+footer{ color:#3498db;
+background-color: #f1f1f1;
+ padding: 20px; 
+text-align: left;
+
+}
+       header {
+    text-align:top;
+    border: 2px solid grey; /* Adjust the border width, style, and color */
+    padding: 20px;           /* Optional: Add padding inside the header */
+    text-align: top;      /* Optional: Center the header text */
+    background-color:blackgrey; /* Optional: Add a background color */
+    color:black;
+}
+#a1{ color:orange;
+font-weight:bold;
+}
+.service {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+h1{
+color:white;
+text-shadow: 2px 0px 3px black;
+}
+img{ background-color: black;
+}
+    </style>
+
+</head>
+<body >
+<div id="d1">
+    <h1>Welcome to website </h1><hr>
+    <h4 >   ©ASK.com </h4>
+</div>
+<hr>
+  <header>
+   <h2>Music player</h2>
+    <nav>
+     <ul id="a1">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About us</a></li>
+      <li><a href="Service.html">Services</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header><br>
+<img src="Head.png" alt="song imagess"><hr>
+<footer>
+ <div id="d2">
+ <section class="service" style="margin-bottom: 20px;">
+    <a href="index.html">Home</a> |
+    <a href="About.html">About Us</a> |
+    <a href="Service.html">Services</a> |
+    <a href="Contact.html">Contact</a>
+  </section>
+  <section id="a2" class="service" style="margin-bottom: 20px;">
+    <a href="https://facebook.com" target="_blank">Facebook</a> |
+    <a href="https://twitter.com" target="_blank">Twitter</a> |
+    <a href="https://www.instagram.com/atharvkumbharr?igsh=emYzdHhybXh2cDcw" target="_blank">Instagram</a>
+  </section>
+  <section class="service" style="margin-bottom: 20px;">
+    <p>Contact us: <a href="mailto:ak1074834@gmail.com">ask@gmail.com <br> Gauravdg@gmail.com</a> <br>| Phone: 91 8767565920</p>
+  </section>
+  <p>&copy; 2024 Music_with-ask.in. All rights reserved.</p>
+
+<button id="b1" onclick="newpage();" class="blinking-butto"> go to music player</button>
+<button id="b2" onclick="feed()">Give Feedback<button>
+</div>
+</footer>
+<script>
+function newpage(){
+window.location.href = 'Audio.html';
+}
+
+function feed(){
+window.location.href ='Check.html';
+}
+</script>
+</body>
+</html>
