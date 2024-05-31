@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Feedback Form</title>
+    <title>Feedback Form</title>
     <style>
         #thankYouMessage {
             display: none;
@@ -52,7 +52,7 @@ h1{ border:2px solid black; background-color:cyan;
     <script> 
           
         const phoneNumber = "918767565920"; // Replace with the recipient's phone number in international format
-        const message = "Hello I am your_name . I am here to give  feedback on site.   ";
+        const message = "Hello I am your_name . I am here to give  feedback on site.  <\n> ";
         
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         document.getElementById('whatsappLink').href = whatsappLink;
