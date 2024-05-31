@@ -45,10 +45,19 @@ h1{ border:2px solid black; background-color:cyan;
 
         <button type="submit">Submit</button>
       <button onclick="goback();"> back </button>
- </form>
+ </form><hr> or
+    <a id="whatsappLink" href="#">Send Feedback via WhatsApp</a><br><br>
     <p id="thankYouMessage">Thank you for your feedback!</p>
 
     <script> 
+          
+        const phoneNumber = "918767565920"; // Replace with the recipient's phone number in international format
+        const message = "Hello, this is a feedback message.";
+        
+        const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        document.getElementById('whatsappLink').href = whatsappLink;
+   
+
          function goback(){
             window.location.href = 'index.html';
           }
