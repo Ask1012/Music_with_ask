@@ -48,11 +48,11 @@ h1{ border:2px solid black; background-color:cyan;
  </form><hr> or
     <a id="whatsappLink" href="#">Send Feedback via WhatsApp</a><br><br>
     <p id="thankYouMessage">Thank you for your feedback!</p>
-  <a id="what" href=https://wa.me/918767565920?text="Hello i am your_name. Ii am here to give feedback on site";> Give feedback on WhatsApp</a>
+  <a id="what" href=https://wa.me/918767565920?text="Hello i am SaReGaMaPa's user. I am here to feedback you";> Give feedback on WhatsApp</a>
     <script> 
           
         const phoneNumber = "918767565920"; // Replace with the recipient's phone number in international format
-        const message = "Hello I am your_name . I am here to give  feedback on site. \n ";
+        const message = "Hello I am SaReGaMaPa's user . I am here to feedback you. \n ";
         
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         document.getElementById('whatsappLink').href = whatsappLink;
@@ -61,6 +61,7 @@ h1{ border:2px solid black; background-color:cyan;
          function goback(){
             window.location.href = 'index.html';
           }
+       let feedbackarray = [ ];
         document.getElementById('feedbackForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form from submitting normally
 
@@ -73,7 +74,11 @@ h1{ border:2px solid black; background-color:cyan;
             console.log('Name:', name);
             console.log('Email:', email);
             console.log('Feedback:', feedback);
-
+          const arrayData : { name:name ,
+                          email:email,
+                          feedback:feedback
+                        };
+                 feedbackarray.push(arrayData);
             // Show the thank you message
              alert(name+' Your feedback successfully submitted ');
             
