@@ -61,7 +61,7 @@ h1{ border:2px solid black; background-color:cyan;
          function goback(){
             window.location.href = 'index.html';
           }
-       let feedbackarray = [ ];
+        
         document.getElementById('feedbackForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form from submitting normally
 
@@ -74,11 +74,6 @@ h1{ border:2px solid black; background-color:cyan;
             console.log('Name:', name);
             console.log('Email:', email);
             console.log('Feedback:', feedback);
-          const arrayData : { name:name ,
-                          email:email,
-                          feedback:feedback
-                        };
-                 feedbackarray.push(arrayData);
             // Show the thank you message
              alert(name+' Your feedback successfully submitted ');
             
