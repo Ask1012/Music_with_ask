@@ -561,7 +561,7 @@ var musicFiles = [
                     playSong(file.singer, file.song);
                 });
                 singertag.addEventListener('click', function () {
-                window.location.href = `Music.html?singer=singer`; 
+                window.location.href = `Music.html?singer=${singer}`; 
                });
                 musicSection.appendChild(section);
             });
