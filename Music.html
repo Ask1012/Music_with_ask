@@ -565,12 +565,12 @@ var musicFiles = [
             });
 
             function playSong(singer, song) {
-               audioPlayer.autoplay=true;
+               
                 playerSection.style.display = "block";
                 playerSection.querySelector("h3").textContent = "▪️" + song;
                playerSection.querySelector("#singertag").innerHTML = " - " +singer;              
                 audioPlayer.src = song;
-                
+                audioPlayer.play();
                 
                 singertag.addEventListener('click', function () {
                 window.location.href = `Music.html?singer=${singer}`; 
