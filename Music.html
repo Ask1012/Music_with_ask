@@ -114,7 +114,7 @@ height:80px;
 display:none;
 position: absolute;
 left:130px;
-top:220px;
+top:233px;
 box-shadow: 2px -10px 7px 4px grey;
 
 }
@@ -565,12 +565,13 @@ var musicFiles = [
             });
 
             function playSong(singer, song) {
+               audioPlayer.autoplay=true;
                 playerSection.style.display = "block";
                 playerSection.querySelector("h3").textContent = "▪️" + song;
                playerSection.querySelector("#singertag").innerHTML = " - " +singer;              
                 audioPlayer.src = song;
-                audioPlayer.autoplay=true;
-                audioPlayer.play();
+                
+                
                 singertag.addEventListener('click', function () {
                 window.location.href = `Music.html?singer=${singer}`; 
             });
