@@ -534,7 +534,12 @@ var musicFiles = [
             return file.singer === singer;
            }
       } else if (category && !singer && !song) {
-        return file.category === category;
+        
+        if(category === file.category )
+           {  
+            playSong(file.singer,file.song);
+            return file.category === category;
+                  }
     } 
 });
 
