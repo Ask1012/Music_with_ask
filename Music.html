@@ -475,6 +475,7 @@ var musicFiles = [
                   "Sidhu Moosewala":"sidhu.jpg",
                  "Mc stan":"mcstan.jpg",
                   "Shreya ghoshal":"shreya2.jpg"
+                  "Party":"Partty.jpg"
             };
 
             var audioPlayer = document.getElementById("audioPlayer");
@@ -527,7 +528,7 @@ var musicFiles = [
               pimg.style.border="3px solid pink";
               pimg.src = singerimg[singer];
              } 
-           if(singer === file.singer || singer === file.category)
+           if(singer === file.singer || singer.toLowerCase() === file.category)
            {  
             playSong(file.singer,file.song);
             return file.singer === singer;
