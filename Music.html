@@ -560,6 +560,8 @@ var musicFiles = [
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     playSong(file.singer, file.song);
                 });
+                singertag.addEventListener('click', function () {
+                window.location.href = `Music.html?singer=${singer}`; 
 
                 musicSection.appendChild(section);
             });
@@ -572,8 +574,7 @@ var musicFiles = [
                 audioPlayer.src = song;
                 audioPlayer.play();
                 
-                singertag.addEventListener('click', function () {
-                window.location.href = `Music.html?singer=${singer}`; 
+                
             });
                 if (musicSection.firstChild !== playerSection) {
                     musicSection.insertBefore(playerSection, musicSection.firstChild);
