@@ -562,7 +562,7 @@ var musicFiles = [
                 });
                 singertag.addEventListener('click', function () {
                 window.location.href = `Music.html?singer=${singer}`; 
-
+               });
                 musicSection.appendChild(section);
             });
 
@@ -575,7 +575,7 @@ var musicFiles = [
                 audioPlayer.play();
                 
                 
-            });
+            
                 if (musicSection.firstChild !== playerSection) {
                     musicSection.insertBefore(playerSection, musicSection.firstChild);
                 }
