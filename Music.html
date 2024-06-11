@@ -196,7 +196,7 @@ bottom:27px;
     <a href="index.html">Home</a> |
     <a href="About.html">About Us</a> |
     <a href="Service.html">Services</a> |
-    <a href="Contact.html">Contact</a>p
+    <a href="Contact.html">Contact</a>
   </section>
   <section id="a2" class="service" style="margin-bottom: 20px;">
     @<a href="https://facebook.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
@@ -475,7 +475,12 @@ var musicFiles = [
                   "Sidhu Moosewala":"sidhu.jpg",
                  "Mc stan":"mcstan.jpg",
                   "Shreya ghoshal":"shreya2.jpg",
-                  "Party":"Partty.jpg"
+                  "Party":"Partty.jpg",
+                "South":"south.jpg",
+                 "English":"english.jpg",
+                "Old":"old.jpg",
+                "BGM":"bgm.jpg"
+
             };
 
             var audioPlayer = document.getElementById("audioPlayer");
@@ -519,7 +524,7 @@ var musicFiles = [
         return  file.category === category;
      
      } else if (singer && !song && !category) {
-            if ( singer in singerimg ) {
+            if ( singer in singerimg || singer ) {
               pimg.style.width= "150px";
               pimg.style.height= "100px";
               pimg.style.marginLeft="100px";
