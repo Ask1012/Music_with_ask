@@ -10,6 +10,8 @@
             color: green;
             margin-top: 10px;
         }
+input {padding:10px;
+}
 h1{ border:2px solid black; background-color:cyan;
 }
     </style>
@@ -17,10 +19,8 @@ h1{ border:2px solid black; background-color:cyan;
 <body>
     <h1>Feedback Form</h1>
      <h2>Rate Us</h2>
-    <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
-     <input type="hidden" name="access_key" value="a76c3563-8ffe-49c5-ad2e-8a221e18b963">
-
-        <label>
+    <form action="https://api.web3forms.com/submit" method="POST">
+    <label>
             <input type="radio" name="rating" value="1"> ⭐
         </label><br>
         <label>
@@ -36,20 +36,14 @@ h1{ border:2px solid black; background-color:cyan;
             <input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐
         </label><br><br>
     
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+    <input type="hidden" name="access_key" value="a76c3563-8ffe-49c5-ad2e-8a221e18b963">
+    <input type="text" id="name" placeholder="Enter your name.." required><br><br>
+    <input type="email" id="email" placeholder="Enter your E-mial.." required><br><br>
+    <textarea name="message" rows="4" cols="45" placeholder="your feedback..." required></textarea><br><br>
+    <button type="submit">Submit Form</button>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        
-        <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="your feedback..." required></textarea><br><br>
-
-        <button type="submit">Submit</button>
-      <button onclick="goback();"> back </button>
- </form><hr> or
-    <a id="whatsappLink" href="#">Send Feedback via WhatsApp</a><br><br>
-    <p id="thankYouMessage">Thank you for your feedback!</p>
+</form> or
+    <br><p id="thankYouMessage">Thank you for your feedback!</p>
   <a id="what" href=https://wa.me/918767565920?text="Hello i am SaReGaMaPa's user. I am here to feedback you";> Give feedback on WhatsApp</a>
     <script> 
           
@@ -85,3 +79,6 @@ h1{ border:2px solid black; background-color:cyan;
     </script>
 </body>
 </html>
+
+
+  
