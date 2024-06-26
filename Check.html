@@ -17,7 +17,9 @@ h1{ border:2px solid black; background-color:cyan;
 <body>
     <h1>Feedback Form</h1>
      <h2>Rate Us</h2>
-    <form id="feedbackForm" action="submit_feedback.php" method="post">
+    <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
+     <input type="hidden" name="access_key" value="a76c3563-8ffe-49c5-ad2e-8a221e18b963">
+
         <label>
             <input type="radio" name="rating" value="1"> ⭐
         </label><br>
