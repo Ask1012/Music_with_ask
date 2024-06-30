@@ -298,11 +298,13 @@ color:white;
     top: 850px;
     left: 2px;
     display: flex;
+     overflow:hidden;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .image-container {
+           display: none;
             position: relative;
             margin: 30px 10px;
             width: 120px; /* Adjust width to suit your design */
@@ -702,8 +704,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             const imageContainers = document.querySelectorAll('.image-container');
             if (window.scrollY > 1) {
+            
                 imageContainers.forEach(container => {
                     container.classList.add('visible');
+                    
                 });
             }
         });
