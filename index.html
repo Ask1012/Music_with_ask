@@ -303,39 +303,40 @@ color:white;
 }
 
 .image-container {
-    position: relative;
-    margin: 30px 10px;
-    width: 120px; /* Adjust width to suit your design */
-    box-shadow: 5px 20px 20px grey;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
-height:170px;
-}
+            position: relative;
+            margin: 30px 10px;
+            width: 120px; /* Adjust width to suit your design */
+            box-shadow: 5px 20px 20px grey;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-sizing: border-box;
+            height: 170px;
+            opacity: 0; /* Initially hidden */
+            transform: translateX(100%); /* Initially off-screen */
+            transition: all 0.5s ease-in-out; /* Smooth slide-in */
+        }
 
+        .image-container.visible {
+            opacity: 1;
+            transform: translateX(0); /* Slide in from the right */
+        }
 
+        .singertag {
+            position: absolute;
+            top: -20px;
+            font-size: 12px; /* Adjust as necessary */
+            left: 10px;
+            color: black; /* Optional: changes text color */
+            padding: 10px; /* Optional: adds padding around text */
+            border-radius: 5px; /* Optional: rounds the corners of the background */
+        }
 
-.singertag {
-    position: absolute;
-    top:-20px;
-   font-size:12px; /* Adjust as necessary */
-    left: 10px;
-    
-    /* Optional: adds background color to text */
-    color: black; /* Optional: changes text color */
-   padding:10px 10px  10px 10px;  /* Optional: adds padding around text */
-    border-radius: 5px; /* Optional: rounds the corners of the background */
-    /* Centers the text */
-    
-/* Adjust to match container padding/margin */
-}
-
-@media (min-width: 600px) {
-    .image-container {
-        flex: 0 0 calc(33.33% - 20px);
+        @media (min-width: 600px) {
+            .image-container {
+                flex: 0 0 calc(33.33% - 20px);
+            }
     }
-}
 </style>
 </head>
 <body id="body">
@@ -667,38 +668,45 @@ height:170px;
     { singer: "BGM", song: "Hukum - Thalaivar Alappara.mp3", category: "bgm"}
     ];       
 document.addEventListener('DOMContentLoaded', () => {
-    let aa = ["arjit.jpg", "diljit.jpg","lata2.jpg", "kishorekumar.jpeg", "shubh.jpg", "sidhu.jpg", "emiway.jpg","mcstan.jpg","uditnarayan.jpg","shreya2.jpg"]; // Array with image paths
-    let singername = ["Arijit singh", "Diljit Dosanjh-B praak","Lata mangeshkar", "Kishore kumar", "Shubh", "Sidhu Moosewala", "Emiway","Mc stan","udit narayan","Shreya ghoshal"]; // Array with singer names
-    const container = document.getElementById('container');
-    
-    for (let i = 0; i < aa.length; i++) {
-        const newSection = document.createElement('div');
-        newSection.className = 'image-container';
-        
-        const img = document.createElement('img');
-        img.className = 'image-container';
-        img.src = aa[i];
-        img.alt = 'singer img';
-        img.dataset.singer = singername[i];  // Store the singer name in a data attribute
-        
-        // Add click event listener to the image
-        img.addEventListener('click', (event) => {
-            const clickedImg = event.target;
-            const singer = clickedImg.dataset.singer;
+            let aa = ["arjit.jpg", "diljit.jpg","lata2.jpg", "kishorekumar.jpeg", "shubh.jpg", "sidhu.jpg", "emiway.jpg","mcstan.jpg","uditnarayan.jpg","shreya2.jpg"]; // Array with image paths
+            let singername = ["Arijit Singh", "Diljit Dosanjh-B Praak","Lata Mangeshkar", "Kishore Kumar", "Shubh", "Sidhu Moosewala", "Emiway","MC Stan","Udit Narayan","Shreya Ghoshal"]; // Array with singer names
+            const container = document.getElementById('container');
             
-  window.location.href = `Music.html?singer=${singer}`;
-            // Add any other actions you want to perform on click
+            for (let i = 0; i < aa.length; i++) {
+                const newSection = document.createElement('div');
+                newSection.className = 'image-container';
+                
+                const img = document.createElement('img');
+                img.className = 'image-container';
+                img.src = aa[i];
+                img.alt = 'singer img';
+                img.dataset.singer = singername[i];  // Store the singer name in a data attribute
+                
+                // Add click event listener to the image
+                img.addEventListener('click', (event) => {
+                    const clickedImg = event.target;
+                    const singer = clickedImg.dataset.singer;
+                    window.location.href = `Music.html?singer=${singer}`;
+                });
+                
+                const h3 = document.createElement('h3');
+                h3.className = 'singertag';
+                h3.innerHTML = "▪️" + singername[i];
+                
+                newSection.appendChild(img);
+                newSection.appendChild(h3);
+                container.appendChild(newSection);
+            }
         });
-        
-        const h3 = document.createElement('h3');
-        h3.className = 'singertag';
-        h3.innerHTML = "▪️" + singername[i];
-        
-        newSection.appendChild(img);
-        newSection.appendChild(h3);
-        container.appendChild(newSection);
-    }
-});
+
+        window.addEventListener('scroll', () => {
+            const imageContainers = document.querySelectorAll('.image-container');
+            if (window.scrollY > 1) {
+                imageContainers.forEach(container => {
+                    container.classList.add('visible');
+                });
+            }
+        });
 let currentIndex = 0;
 
 const slides = document.querySelectorAll('.slide');
