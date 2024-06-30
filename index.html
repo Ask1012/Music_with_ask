@@ -708,12 +708,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('scroll', () => {
         const imageContainers = document.querySelectorAll('.image-container');
-        if (window.scrollY > 100 && window.scrollY <= 500) {
+        if (window.scrollY > 200 && window.scrollY <= 1500) {
             imageContainers.forEach(container => {
                 container.classList.add('visible');
                 container.classList.remove('hidden');
             });
-        } else if (window.scrollY > 1400) {
+        } else if (window.scrollY > 1500) {
             imageContainers.forEach(container => {
                 container.classList.add('hidden');
                 container.classList.remove('visible');
