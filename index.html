@@ -316,7 +316,7 @@ color:white;
             height: 170px;
             opacity: 0; /* Initially hidden */
             transform: translateX(-100%); /* Initially off-screen */
-            transition: all 0.5s ease-in-out; /* Smooth slide-in */
+            transition: all 1s ease-in-out; /* Smooth slide-in */
         }
 
         .image-container.visible {
@@ -325,6 +325,10 @@ color:white;
         }
 
         .image-container.hidden {
+            opacity: 0;
+            transform: translateX(300%); /* Slide out to the left */
+        }
+          .image-container hide {
             opacity: 0;
             transform: translateX(300%); /* Slide out to the left */
         }
@@ -343,7 +347,7 @@ color:white;
             .image-container {
                 flex: 0 0 calc(33.33% - 20px);
             }
-        }
+    }
 </style>
 </head>
 <body id="body">
@@ -708,17 +712,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('scroll', () => {
         const imageContainers = document.querySelectorAll('.image-container');
-        if (window.scrollY > 400 && window.scrollY <= 3000) {
+        if (window.scrollY > 400 && window.scrollY <= 1700) {
             imageContainers.forEach(container => {
                 container.classList.add('visible');
                 container.classList.remove('hidden');
             });
-        } else if (window.scrollY > 1500) {
+        }
+         else if (window.scrollY >= 1700) {
             imageContainers.forEach(container => {
                 container.classList.add('hidden');
                 container.classList.remove('visible');
             });
+            
         }
+        else if (window.scrollY <680) {
+            imageContainers.forEach(container => {
+                container.classList.add('hide');
+                container.classList.remove('visible');
+            });
+            
+      }
     });
 let currentIndex = 0;
 
