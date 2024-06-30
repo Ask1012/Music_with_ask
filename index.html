@@ -294,18 +294,17 @@ border:2px solid grey;
 color:white;
 }
  #container {
-    position: absolute;
-    top: 850px;
-    left: 2px;
-    display: flex;
-     overflow:hidden;
-    flex-wrap: wrap;
-    justify-content: space-around;
-     padding-bottom:60px;
-}
+            position: absolute;
+            top: 850px;
+            left: 2px;
+            display: flex;
+            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 60px;
+        }
 
-.image-container {
-           
+        .image-container {
             position: relative;
             margin: 30px 10px;
             width: 120px; /* Adjust width to suit your design */
@@ -316,13 +315,18 @@ color:white;
             box-sizing: border-box;
             height: 170px;
             opacity: 0; /* Initially hidden */
-            transform: translateX(100%); /* Initially off-screen */
+            transform: translateX(-100%); /* Initially off-screen */
             transition: all 0.5s ease-in-out; /* Smooth slide-in */
         }
 
         .image-container.visible {
             opacity: 1;
-            transform: translateX(0); /* Slide in from the right */
+            transform: translateX(0); /* Slide in from the left */
+        }
+
+        .image-container.hidden {
+            opacity: 0;
+            transform: translateX(300%); /* Slide out to the left */
         }
 
         .singertag {
@@ -339,7 +343,7 @@ color:white;
             .image-container {
                 flex: 0 0 calc(33.33% - 20px);
             }
-    }
+        }
 </style>
 </head>
 <body id="body">
@@ -703,15 +707,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         window.addEventListener('scroll', () => {
-            const imageContainers = document.querySelectorAll('.image-container');
-            if (window.scrollY > 500) {
-            
-                imageContainers.forEach(container => {
-                    container.classList.add('visible');
-                    
-                });
-            }
-        });
+        const imageContainers = document.querySelectorAll('.image-container');
+        if (window.scrollY > 100 && window.scrollY <= 500) {
+            imageContainers.forEach(container => {
+                container.classList.add('visible');
+                container.classList.remove('hidden');
+            });
+        } else if (window.scrollY > 1400) {
+            imageContainers.forEach(container => {
+                container.classList.add('hidden');
+                container.classList.remove('visible');
+            });
+        }
+    });
 let currentIndex = 0;
 
 const slides = document.querySelectorAll('.slide');
