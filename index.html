@@ -348,6 +348,21 @@ color:white;
                 flex: 0 0 calc(33.33% - 20px);
             }
     }
+     @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(10);
+    }
+}
+
+.slide-in {
+    opacity: 0; /* Start invisible */
+    animation: slideIn 1s forwards; /* Animate on trigger */
+}
 </style>
 </head>
 <body id="body">
@@ -400,17 +415,17 @@ color:white;
      </div>
   </div>       
 <img class="menu-icon" onclick="toggleMenu()"  src="profile.png"> 
-  <nav>
-     <ul id="a1"><br><br>
-      <li><a id="r2" href="Music.html?category=bollywood"> New Bollywood</a></li>
-      <li><a id="r2" href="Music.html?category=party"> Rock / party song </a></li>
-      <li><a id="r2" href="Music.html?category=old"> old 90's</a></li>
-     <li><a id="r2" href="Music.html?category=marathi"> Marathi</a></li>
-     <li><a id="r2" href="Music.html?category=English"> English</a></li>
-       <li><a id="r2" href="Music.html?category=panjabi"> Panjabi</a></li>
-      <li><a id="r2" href="Music.html?category=rap"> Rap</a></li>
-      <li><a id="r2" href="Music.html?category=south">South</a></li>
-       <li><a id="r2" href="Music.html?category=bgm">BGM </a></li>
+  <nav >
+     <ul id="a1" ><br><br>
+      <li class="slide-element"><a id="r2" href="Music.html?category=bollywood"> New Bollywood</a></li>
+      <li class="slide-element"><a id="r2" href="Music.html?category=party"> Rock / party song </a></li>
+      <li class="slide-element"><a id="r2" href="Music.html?category=old"> old 90's</a></li>
+     <li class="slide-element"><a id="r2" href="Music.html?category=marathi"> Marathi</a></li>
+     <li class="slide-element"><a id="r2" href="Music.html?category=English"> English</a></li>
+      <li class="slide-element"><a id="r2" href="Music.html?category=panjabi"> Panjabi</a></li>
+      <li class="slide-element"><a id="r2" href="Music.html?category=rap"> Rap</a></li>
+      <li class="slide-element"><a id="r2" href="Music.html?category=south">South</a></li>
+       <li class="slide-element"><a id="r2" href="Music.html?category=bgm">BGM </a></li>
     </ul>
   </nav>
 
@@ -709,7 +724,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.appendChild(newSection);
             }
         });
+    const observerOptions = {
+        threshold: 0.1
+    };
 
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.slide-element').forEach(element => {
+        observer.observe(element);
+    });
         window.addEventListener('scroll', () => {
         const imageContainers = document.querySelectorAll('.image-container');
         if (window.scrollY > 400 && window.scrollY <= 1700) {
