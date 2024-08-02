@@ -234,7 +234,7 @@ color:blue;
             color:white;
 }
 /* Style for the header element */
-.header { width:100%; height:250%;
+.header { width:70%; height:30%;
     background-image: url('Head.png'); /* Path to your image */
     background-size: cover; /* Ensures the image covers the entire header */
     background-position: center; /* Centers the image */
