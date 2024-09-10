@@ -54,6 +54,7 @@ html, body {
             width: 100vw;
             height: 100vh;
             overflow: flex;
+    background: linear-gradient(135deg, black, black,white,white);
 }
         .blinking-butto {
     animation: blink-animation 0.7s infinite; /* Blinking effect */
